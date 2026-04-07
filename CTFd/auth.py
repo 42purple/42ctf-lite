@@ -427,7 +427,6 @@ def register():
             "registrations",
             format="[{date}] {ip} - {name} registered with {email}",
             name=user.name,
-            email=user.email,
         )
         db.session.close()
 

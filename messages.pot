@@ -59,7 +59,7 @@ msgid "Submit"
 msgstr ""
 
 #: CTFd/forms/auth.py:46
-msgid "User Name or Email"
+msgid "User Name"
 msgstr ""
 
 #: CTFd/forms/auth.py:55

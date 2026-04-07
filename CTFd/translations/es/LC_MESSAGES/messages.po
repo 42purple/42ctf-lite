@@ -59,10 +59,6 @@ msgstr "Contraseña"
 msgid "Submit"
 msgstr "Enviar"
 
-#: CTFd/forms/auth.py:46
-msgid "User Name or Email"
-msgstr "Nombre de usuario o correo electrónico"
-
 #: CTFd/forms/auth.py:55
 msgid "Resend Confirmation Email"
 msgstr "Reenviar correo de confirmación"
