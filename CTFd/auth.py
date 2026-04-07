@@ -264,14 +264,14 @@ def register():
         names = (
             Users.query.add_columns(Users.name, Users.id).filter_by(name=name).first()
         )
-        emails = (
-            Users.query.add_columns(Users.email, Users.id)
-            .filter_by(email=email_address)
-            .first()
-        )
+#        emails = (
+#            Users.query.add_columns(Users.email, Users.id)
+#            .filter_by(email=email_address)
+#            .first()
+#        )
         pass_short = len(password) == 0
         pass_long = len(password) > 128
-        valid_email = validators.validate_email(email_address)
+        #valid_email = validators.validate_email(email_address)
         team_name_email_check = validators.validate_email(name)
 
         password_min_length = int(get_config("password_min_length", default=0))
@@ -330,18 +330,18 @@ def register():
             else:
                 valid_bracket = True
 
-        if not valid_email:
-            errors.append(_l("Please enter a valid email address"))
-        if email.check_email_is_whitelisted(email_address) is False:
-            errors.append(_l("Your email address is not from an allowed domain"))
-        if email.check_email_is_blacklisted(email_address) is True:
-            errors.append(_l("Your email address is not from an allowed domain"))
+        #if not valid_email:
+        #    errors.append(_l("Please enter a valid email address"))
+        #if email.check_email_is_whitelisted(email_address) is False:
+        #    errors.append(_l("Your email address is not from an allowed domain"))
+        #if email.check_email_is_blacklisted(email_address) is True:
+        #    errors.append(_l("Your email address is not from an allowed domain"))
         if names:
             errors.append(_l("That user name is already taken"))
         if team_name_email_check is True:
             errors.append(_l("Your user name cannot be an email address"))
-        if emails:
-            errors.append(_l("That email has already been used"))
+#        if emails:
+#            errors.append(_l("That email has already been used"))
         if pass_short:
             errors.append(_l("Pick a longer password"))
         if password_min_length and pass_min:
@@ -368,7 +368,6 @@ def register():
                 "register.html",
                 errors=errors,
                 name=request.form["name"],
-                email=request.form["email"],
                 password=request.form["password"],
             )
         else:
@@ -410,9 +409,8 @@ def register():
                 ):  # Confirming users is enabled and we can send email.
                     log(
                         "registrations",
-                        format="[{date}] {ip} - {name} registered (UNCONFIRMED) with {email}",
-                        name=user.name,
-                        email=user.email,
+                        format="[{date}] {ip} - {name} registered (UNCONFIRMED)",
+                        name=user.name
                     )
                     email.verify_email_address(user.email)
                     db.session.close()
@@ -425,7 +423,7 @@ def register():
 
         log(
             "registrations",
-            format="[{date}] {ip} - {name} registered with {email}",
+            format="[{date}] {ip} - {name} registered",
             name=user.name,
         )
         db.session.close()
