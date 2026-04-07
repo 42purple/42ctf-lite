@@ -8,7 +8,6 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: '/the-vibecoder/',
   server: {
     allowedHosts: ['the-vibecoder.calendario2.duckdns.org'],
     host: "0.0.0.0",
