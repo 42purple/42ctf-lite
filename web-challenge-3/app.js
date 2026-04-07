@@ -19,7 +19,7 @@ app.post('/search', (req, res) => {
     const query = req.body.query;
     const sql = `SELECT username, email FROM users WHERE username LIKE '%${query}%'`;
 
-    if (query = "") {
+    if (query == "") {
         return [];
     } 
     db.all(sql, (err, rows) => {

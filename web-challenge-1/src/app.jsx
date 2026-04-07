@@ -57,7 +57,7 @@ export default function App() {
     if (!response.ok) {
       throw new Error(`HTTP ERROR: ${response.status}`)
     }
-    alert(response.json());
+    response.json().then(x => alert(x));
   }
 
   return (
