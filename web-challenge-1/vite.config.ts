@@ -10,6 +10,7 @@ export default defineConfig({
   ],
   base: '/the-vibecoder/',
   server: {
+    allowedHosts: ['the-vibecoder.calendario2.duckdns.org'],
     host: "0.0.0.0",
     port: 3000,
     strictPort: true

@@ -19,12 +19,14 @@ app.post('/search', (req, res) => {
     const query = req.body.query;
     const sql = `SELECT username, email FROM users WHERE username LIKE '%${query}%'`;
 
+    if (query = "") {
+        return [];
+    } 
     db.all(sql, (err, rows) => {
-
-    console.log(rows)
         if (err) {
             return res.send({"error" : `Database error: + ${err.message}`});
         }
+        console.log(rows);
         res.json(rows);
     });
 });
