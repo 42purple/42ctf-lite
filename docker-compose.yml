@@ -41,8 +41,8 @@ services:
     image: nginx:stable
     restart: always
     volumes:
-      - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
-      - server_ssl:/var/cache/nginx/
+      - ./conf/nginx/prod.conf:/etc/nginx/nginx.conf
+      - server_ssl:/var/cache/nginx/ssl/
     ports:
       - 80:80
       - 443:443
