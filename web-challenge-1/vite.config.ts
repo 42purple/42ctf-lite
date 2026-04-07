@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  base: '/the-vibecoder/',
   server: {
     host: "0.0.0.0",
     port: 3000,
