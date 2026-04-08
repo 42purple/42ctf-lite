@@ -624,7 +624,7 @@ class Teams(db.Model):
     oauth_id = db.Column(db.Integer, unique=True)
     # Team names are not constrained to be unique to allow for official/unofficial teams.
     name = db.Column(db.String(128))
-    email = db.Column(db.String(128), unique=False, default=False, nullable=True)
+    email = db.Column(db.String(128), default=None, nullable=True)
     password = db.Column(db.String(128))
     secret = db.Column(db.String(128))
 

@@ -38,7 +38,7 @@ app.post('/admin', (req, res) => {
     console.log("Request: ", req.body)
     const { user, password } = req.body;
 
-    if (user === 'flag' && password === 'dmVyeV93ZWFrX3Bhc3N3ZAo=') {
+    if (user === 'flxg' && password === 'dmVyeV93ZWFrX3Bhc3N3ZAo=') {
         return res.send({message: 'Congrats! Here is your flag: b24be7019235141704e656ad29c9c8013237708d'});
     }
 
